@@ -11,6 +11,7 @@
   </p>
 
   <p>
+    <a href="https://chromewebstore.google.com/detail/ebndlkeopglpkjmdmmblapiahiccdlgg"><img src="https://img.shields.io/badge/Chrome%20Web%20Ma%C4%9Fazas%C4%B1-y%C3%BCkle-ea4335?style=for-the-badge&logo=chromewebstore&logoColor=white" alt="Chrome Web Mağazası'ndan yükle"></a>
     <img src="https://img.shields.io/badge/s%C3%BCr%C3%BCm-0.10.5-1a73e8?style=for-the-badge" alt="Sürüm 0.10.5">
     <img src="https://img.shields.io/badge/Manifest-V3-34a853?style=for-the-badge&logo=googlechrome&logoColor=white" alt="Manifest V3">
     <img src="https://img.shields.io/badge/Chrome%20%7C%20Brave-destekleniyor-fbbc05?style=for-the-badge&logo=brave&logoColor=white" alt="Chrome ve Brave">
@@ -55,21 +56,15 @@ Yabancı dilde okurken bir kelimeye bakmak için sayfadan her ayrılışınızda
 - 🔒 **Gizlilik önce gelir**: kendi sunucumuz yok, telemetri yok, anahtarlar tarayıcınızda kalır.
 - 🧩 **Düz JavaScript**: derleme adımı ve bağımlılık yok.
 
-> Durum: erken geliştirme (v0.10.5). Henüz Chrome Web Mağazası'nda değil; aşağıdaki gibi paketlenmemiş olarak yüklenir.
+> 🎉 **Artık Chrome Web Mağazası'nda:** [ReadRiver'ı tek tıkla yükleyin](https://chromewebstore.google.com/detail/ebndlkeopglpkjmdmmblapiahiccdlgg). Chrome, Brave ve diğer Chromium tabanlı tarayıcılarda çalışır.
 
 > 🖥️ **Tarayıcının dışında da:** [ReadRiver Masaüstü](https://github.com/alitaghiyev/readriver-desktop) aynı kartı her Windows uygulamasına taşır (Discord, PDF okuyucular, editörler). Ayarlar, sağlayıcılar ve kaydedilen kelimeler **Ayarlar → Gelişmiş → Dışa aktar / İçe aktar** ile ikisi arasında taşınır.
 
 ## 🚀 Hızlı başlangıç
 
-Derlenecek bir şey yok.
-
-1. Depoyu klonlayın:
-   ```bash
-   git clone https://github.com/alitaghiyev/readriver-extension.git
-   ```
-2. `chrome://extensions` (veya `brave://extensions`) sayfasını açıp **Geliştirici modu**'nu etkinleştirin.
-3. **Paketlenmemiş öğe yükle**'ye tıklayıp proje klasörünü seçin.
-4. Herhangi bir sayfada **bir kelimeye çift tıklayın**.
+1. [Chrome Web Mağazası'ndaki ReadRiver sayfasını](https://chromewebstore.google.com/detail/ebndlkeopglpkjmdmmblapiahiccdlgg) açıp **Chrome'a ekle**'ye tıklayın (Brave'de: **Brave'e ekle**).
+2. Önceden açık olan sekmeleri yenileyin.
+3. Herhangi bir sayfada **bir kelimeye çift tıklayın**.
 
 Bu kadar. Ücretsiz kaynaklar anahtar istemez. LLM eklemek için pencereyi açın (`Alt+R`) → **Ayarlar** → **Kaynaklar** → **+ Sağlayıcı ekle**.
 
@@ -80,6 +75,20 @@ Bu kadar. Ücretsiz kaynaklar anahtar istemez. LLM eklemek için pencereyi açı
 | `Esc` | Kartı kapat; açık kart yoksa tek tık etiketlerini kaldır |
 
 `Alt+R` ve `Alt+T`, `chrome://extensions/shortcuts` sayfasından değiştirilebilir.
+
+<details>
+<summary><strong>Kaynaktan yükleme</strong> (geliştirme için)</summary>
+
+Derlenecek bir şey yok.
+
+1. Depoyu klonlayın:
+   ```bash
+   git clone https://github.com/alitaghiyev/readriver-extension.git
+   ```
+2. `chrome://extensions` (veya `brave://extensions`) sayfasını açıp **Geliştirici modu**'nu etkinleştirin.
+3. **Paketlenmemiş öğe yükle**'ye tıklayıp proje klasörünü seçin.
+
+</details>
 
 ## 🖼️ Ekran görüntüleri
 
@@ -266,7 +275,8 @@ docs/screenshots/    Bu README'deki görseller
 
 ## 🗺️ Yol haritası
 
-- [ ] Chrome Web Mağazası / Firefox yayını
+- [x] Chrome Web Mağazası yayını
+- [ ] Firefox yayını
 - [ ] Otomatik testler
 - [ ] Kaydedilen kelimeleri Anki'ye aktarma
 

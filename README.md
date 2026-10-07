@@ -11,6 +11,7 @@
   </p>
 
   <p>
+    <a href="https://chromewebstore.google.com/detail/ebndlkeopglpkjmdmmblapiahiccdlgg"><img src="https://img.shields.io/badge/Chrome%20Web%20Store-install-ea4335?style=for-the-badge&logo=chromewebstore&logoColor=white" alt="Install from the Chrome Web Store"></a>
     <img src="https://img.shields.io/badge/version-0.10.5-1a73e8?style=for-the-badge" alt="Version 0.10.5">
     <img src="https://img.shields.io/badge/Manifest-V3-34a853?style=for-the-badge&logo=googlechrome&logoColor=white" alt="Manifest V3">
     <img src="https://img.shields.io/badge/Chrome%20%7C%20Brave-supported-fbbc05?style=for-the-badge&logo=brave&logoColor=white" alt="Chrome and Brave">
@@ -53,21 +54,15 @@ Reading in a foreign language breaks down every time you leave the page to look 
 - 🔒 **Private by design**: no server of ours, no telemetry, keys stay in your browser.
 - 🧩 **Plain JavaScript**: no build step and no dependencies.
 
-> Status: early development (v0.10.5). Not yet in the Chrome Web Store; install it unpacked as shown below.
+> 🎉 **Now on the Chrome Web Store:** [install ReadRiver](https://chromewebstore.google.com/detail/ebndlkeopglpkjmdmmblapiahiccdlgg) in one click. Works in Chrome, Brave and other Chromium browsers.
 
 > 🖥️ **Outside the browser too:** [ReadRiver Desktop](https://github.com/alitaghiyev/readriver-desktop) brings the same card to any Windows app (Discord, PDF readers, editors). Settings, providers and saved words move between the two with **Settings → Advanced → Export / Import**.
 
 ## 🚀 Quick start
 
-There is nothing to build.
-
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/alitaghiyev/readriver-extension.git
-   ```
-2. Open `chrome://extensions` (or `brave://extensions`) and turn on **Developer mode**.
-3. Click **Load unpacked** and select the project folder.
-4. Open any page and **double-click a word**.
+1. Open [ReadRiver on the Chrome Web Store](https://chromewebstore.google.com/detail/ebndlkeopglpkjmdmmblapiahiccdlgg) and click **Add to Chrome** (in Brave: **Add to Brave**).
+2. Refresh the tabs that were already open.
+3. Open any page and **double-click a word**.
 
 That's it. The free sources need no key. To add an LLM, open the popup (`Alt+R`) → **Settings** → **Sources** → **+ Add provider**.
 
@@ -78,6 +73,20 @@ That's it. The free sources need no key. To add an LLM, open the popup (`Alt+R`)
 | `Esc` | Close the card; if none is open, remove one-click labels |
 
 `Alt+R` and `Alt+T` can be changed at `chrome://extensions/shortcuts`.
+
+<details>
+<summary><strong>Install from source</strong> (for development)</summary>
+
+There is nothing to build.
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/alitaghiyev/readriver-extension.git
+   ```
+2. Open `chrome://extensions` (or `brave://extensions`) and turn on **Developer mode**.
+3. Click **Load unpacked** and select the project folder.
+
+</details>
 
 ## 🖼️ Screenshots
 
@@ -264,7 +273,8 @@ docs/screenshots/    Images used in this README
 
 ## 🗺️ Roadmap
 
-- [ ] Chrome Web Store / Firefox release
+- [x] Chrome Web Store release
+- [ ] Firefox release
 - [ ] Automated tests
 - [ ] Anki export of saved words
 
