@@ -10,7 +10,8 @@
     dblDelay: 0, // ms; wait after a double-click (avoids a wrong translation while triple-clicking to select a paragraph)
     tagDelay: 250, // ms; wait before the label opens in one-click mode (a second click within this time means a double-click)
     tagColor: "#fbbf24", // highlight color of the word under the mouse in one-click mode
-    tagFontSize: 12, // px; size of the translation in the label (shrinks in "fit" if the gap is tight)
+    tagFontSize: 15, // px; size of the translation in the label (shrinks in "fit" if the gap is tight)
+    tagFontV2: true, // marker: tagFontSize was saved after the v0.10.7 default change
     tagLayout: "fit", // fit: fit between the lines | expand: open space between the lines | overlay: draw over the line above
     tagBg: "#1a73e8", // label background
     tagFg: "#ffffff", // label text
@@ -41,7 +42,7 @@
   };
 
   const limits = {
-    autoDelay: [0, 2000], dblDelay: [0, 1000], tagDelay: [0, 600], tagFontSize: [8, 20], minChars: [1, 20], maxChars: [20, 1000],
+    autoDelay: [0, 2000], dblDelay: [0, 1000], tagDelay: [0, 600], tagFontSize: [11, 24], minChars: [1, 20], maxChars: [20, 1000],
     hoverDelay: [100, 1500], leaveDelay: [100, 2000], subFontScale: [0.6, 2], subOpacity: [0, 100],
     fontSize: [11, 20], cardWidth: [280, 560], maxExamples: [1, 5], cacheMax: [50, 5000]
   };
@@ -61,6 +62,8 @@
     for (const k of ["dblclick", "subtitleHover", "pauseOnHover", "nativeSubs"]) {
       if (stored[k] === undefined && s[k] !== undefined) p[k] = s[k];
     }
+    // v0.10.7: the label default grew from 12 to 15 px; saved settings still carry the old default.
+    if (!stored.tagFontV2 && Number(stored.tagFontSize) === 12) p.tagFontSize = defaults.tagFontSize;
     for (const [k, [lo, hi]] of Object.entries(limits)) {
       const n = Number(p[k]);
       p[k] = Number.isFinite(n) ? Math.min(hi, Math.max(lo, n)) : defaults[k];

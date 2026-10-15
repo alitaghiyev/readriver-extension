@@ -760,7 +760,7 @@ const SCHEMA = {
     { key: "tagLayout", type: "select", label: "Çevirinin yeri",
       options: [["fit", "Satır arasına sığdır (gerekirse küçült)"], ["expand", "Satır arasını aç (tam boyut, satır aşağı kayar)"], ["overlay", "Tam boyut, üstteki satırın üzerine yaz"]],
       hint: "Satır arasını aç: çevirinin olduğu satır, çeviri sığacak kadar aşağı itilir. Kelime görünmez bir <span> ile sarılır; etiket kalkınca geri alınır." },
-    { key: "tagFontSize", type: "range", label: "Çeviri yazı boyutu", min: 8, max: 20, step: 1, unit: " px",
+    { key: "tagFontSize", type: "range", label: "Çeviri yazı boyutu", min: 11, max: 24, step: 1, unit: " px",
       hint: "“Sığdır” seçiliyken bu en büyük boydur; satır arası dar olan sayfalarda küçülür." },
     { key: "tagBg", type: "color", label: "Etiket rengi" },
     { key: "tagFg", type: "color", label: "Etiket yazı rengi" },

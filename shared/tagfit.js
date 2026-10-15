@@ -1,7 +1,7 @@
 // Placement math of the one-click mode label: shared by the content script (labels on the page) and the settings page (preview).
 // Classic script; writes to globalThis.RC_TAGFIT.
 (() => {
-  const MIN = 8; // px; anything smaller is unreadable
+  const MIN = 11; // px; anything smaller is hard to read
   const LH = 1.12; // label height / font size (line-height 1 + vertical padding)
   let ctx = null;
 

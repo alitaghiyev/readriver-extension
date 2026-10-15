@@ -12,7 +12,7 @@
 
   <p>
     <a href="https://chromewebstore.google.com/detail/ebndlkeopglpkjmdmmblapiahiccdlgg"><img src="https://img.shields.io/badge/Chrome%20Web%20Store-install-ea4335?style=for-the-badge&logo=chromewebstore&logoColor=white" alt="Install from the Chrome Web Store"></a>
-    <img src="https://img.shields.io/badge/version-0.10.6-1a73e8?style=for-the-badge" alt="Version 0.10.6">
+    <img src="https://img.shields.io/badge/version-0.10.7-1a73e8?style=for-the-badge" alt="Version 0.10.7">
     <img src="https://img.shields.io/badge/Manifest-V3-34a853?style=for-the-badge&logo=googlechrome&logoColor=white" alt="Manifest V3">
     <img src="https://img.shields.io/badge/Chrome%20%7C%20Brave-supported-fbbc05?style=for-the-badge&logo=brave&logoColor=white" alt="Chrome and Brave">
     <img src="https://img.shields.io/badge/build%20step-none-555555?style=for-the-badge&logo=javascript&logoColor=white" alt="No build step">
