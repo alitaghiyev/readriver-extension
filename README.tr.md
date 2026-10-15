@@ -12,7 +12,7 @@
 
   <p>
     <a href="https://chromewebstore.google.com/detail/ebndlkeopglpkjmdmmblapiahiccdlgg"><img src="https://img.shields.io/badge/Chrome%20Web%20Ma%C4%9Fazas%C4%B1-y%C3%BCkle-ea4335?style=for-the-badge&logo=chromewebstore&logoColor=white" alt="Chrome Web Mağazası'ndan yükle"></a>
-    <img src="https://img.shields.io/badge/s%C3%BCr%C3%BCm-0.10.7-1a73e8?style=for-the-badge" alt="Sürüm 0.10.7">
+    <img src="https://img.shields.io/badge/s%C3%BCr%C3%BCm-0.10.8-1a73e8?style=for-the-badge" alt="Sürüm 0.10.8">
     <img src="https://img.shields.io/badge/Manifest-V3-34a853?style=for-the-badge&logo=googlechrome&logoColor=white" alt="Manifest V3">
     <img src="https://img.shields.io/badge/Chrome%20%7C%20Brave-destekleniyor-fbbc05?style=for-the-badge&logo=brave&logoColor=white" alt="Chrome ve Brave">
     <img src="https://img.shields.io/badge/derleme%20ad%C4%B1m%C4%B1-yok-555555?style=for-the-badge&logo=javascript&logoColor=white" alt="Derleme adımı yok">

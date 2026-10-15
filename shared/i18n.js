@@ -94,6 +94,8 @@
 
   // ---- Shared dictionary: card, toolbar popup, context menu, common error messages ----
   add({
+    // Default name of the free provider (stored in Turkish, shown in the UI language)
+    "Hızlı (ücretsiz)": "Fast (free)",
     // render.js
     "“{q}” çevriliyor…": "Translating “{q}”…",
     "Örnek cümleler": "Example sentences",

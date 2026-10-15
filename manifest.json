@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "ReadRiver",
-  "version": "0.10.7",
+  "version": "0.10.8",
   "default_locale": "en",
   "description": "__MSG_extDescription__",
   "icons": { "16": "icons/icon16.png", "32": "icons/icon32.png", "48": "icons/icon48.png", "128": "icons/icon128.png" },

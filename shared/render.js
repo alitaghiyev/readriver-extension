@@ -123,7 +123,7 @@ var RC = (() => {
     }
 
     if (r.cached) root.append(el("div", "rc-foot", t("önbellekten")));
-    else if (r.provider) root.append(el("div", "rc-foot", r.provider));
+    else if (r.provider) root.append(el("div", "rc-foot", t(r.provider)));
 
     if (opts.autoSpeak) speak(r.query, r.from); // Settings > read aloud when the card opens
   }

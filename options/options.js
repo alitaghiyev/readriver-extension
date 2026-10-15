@@ -11,6 +11,9 @@ RC_I18N.translateDom(document.head.querySelector("title"));
 RC_I18N.observe(document.body);
 const $ = (id) => document.getElementById(id);
 const TYPE_LABEL = { free: "Hızlı (ücretsiz)", openai: "OpenAI uyumlu", gemini: "Gemini", anthropic: "Claude" };
+// A provider still carrying its type's default name (stored in Turkish) is shown under that name in the UI language.
+const hasDefaultName = (p) => !p.name || p.name === TYPE_LABEL[p.type] || p.name === t(TYPE_LABEL[p.type]);
+const displayName = (p) => (hasDefaultName(p) ? t(TYPE_LABEL[p.type]) : p.name);
 // Hosts allowed in the manifest; for any other address (e.g. a server IP) permission is requested at runtime.
 const BUILTIN_HOSTS = chrome.runtime.getManifest().host_permissions.map((m) => m.split("/")[2]);
 
@@ -394,13 +397,13 @@ function card(p, i) {
     if (!rows.length) items.append(el("div", { className: "hint", textContent: "Eşleşen model yok. Adı biliyorsan yukarıdaki kutuya elle yazabilirsin." }));
   }
 
-  const nameEl = el("strong", { className: "name", textContent: p.name || TYPE_LABEL[p.type] });
+  const nameEl = el("strong", { className: "name", textContent: displayName(p) });
   const sub = el("span", { className: "sub" });
   const refresh = () => {
     const s = summaryText(p);
     sub.textContent = (s.warn ? "⚠ " : "") + s.text;
     sub.classList.toggle("warn", !!s.warn);
-    nameEl.textContent = p.name || TYPE_LABEL[p.type];
+    nameEl.textContent = displayName(p);
   };
   const bind = (input, key) => {
     input.addEventListener("input", () => { p[key] = input.value.trim(); refresh(); });
@@ -419,7 +422,7 @@ function card(p, i) {
   up.addEventListener("click", () => { [providers[i - 1], providers[i]] = [providers[i], providers[i - 1]]; markDirty(); render(); });
   down.addEventListener("click", () => { [providers[i + 1], providers[i]] = [providers[i], providers[i + 1]]; markDirty(); render(); });
   del.addEventListener("click", () => {
-    if (!confirm(t("“{name}” silinsin mi? (Kaydet'e basana kadar uygulanmaz.)", { name: p.name || t(TYPE_LABEL[p.type]) }))) return;
+    if (!confirm(t("“{name}” silinsin mi? (Kaydet'e basana kadar uygulanmaz.)", { name: displayName(p) }))) return;
     providers.splice(i, 1);
     openIds.delete(p.id);
     markDirty();
@@ -436,7 +439,7 @@ function card(p, i) {
   const intro = el("p", { className: "hint" }, c.blurb || "");
   if (c.keyUrl) intro.append(" ", link(c.keyUrl, (c.keyLabel || "Anahtar al") + " ↗"));
   body.push(intro);
-  body.push(field("Görünen ad", bind(el("input", { value: p.name || "", placeholder: TYPE_LABEL[p.type] }), "name")));
+  body.push(field("Görünen ad", bind(el("input", { value: hasDefaultName(p) ? "" : p.name, placeholder: t(TYPE_LABEL[p.type]) }), "name")));
 
   if (p.type === "free") {
     body.push(...freeSourcesUI(p, refresh));
@@ -630,7 +633,7 @@ $("diag").addEventListener("click", async (e) => {
   if (d?.last) {
     const l = d.last;
     row(l.ok, l.ok
-      ? t("Son çeviri: “{q}” · {p}{c} · {ms} ms", { q: l.query, p: l.provider, c: l.cached ? " " + t("(önbellek)") : "", ms: l.ms })
+      ? t("Son çeviri: “{q}” · {p}{c} · {ms} ms", { q: l.query, p: t(l.provider), c: l.cached ? " " + t("(önbellek)") : "", ms: l.ms })
       : t("Son çeviri BAŞARISIZ: “{q}” · {e}", { q: l.query, e: l.error }));
   } else {
     row(null, "Bu oturumda henüz çeviri yapılmamış");
@@ -1187,7 +1190,7 @@ $("save").addEventListener("click", async () => {
       langA: $("langA").value || "en",
       langB: $("langB").value || "tr",
       prefs,
-      providers: providers.map((p) => ({ ...p, name: p.name || TYPE_LABEL[p.type] }))
+      providers: providers.map((p) => ({ ...p, name: hasDefaultName(p) ? TYPE_LABEL[p.type] : p.name }))
     });
     dirty = false;
     if (RC_I18N.resolveLang(prefs.uiLang) !== shownLang) return location.reload(); // language changed: re-translate the page texts
