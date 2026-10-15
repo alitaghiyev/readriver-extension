@@ -30,6 +30,9 @@
   const KNOWN_SUB = ".ytp-caption-segment, .caption-window, .player-timedtext, .vjs-text-track-display, .vjs-text-track-cue, .rc-native-sub";
   // Generic names ("caption", "subtitle"): treated as subtitles only while the mouse is over a <video> (to exclude blog image captions).
   const GENERIC_SUB = "[class*='ubtitle'], [class*='aption']";
+  // Player chrome (control bar, settings/context menus, dialogs): hovering it never triggers subtitle translation.
+  const PLAYER_UI = ".ytp-popup, .ytp-chrome-bottom, .ytp-chrome-top, .ytp-contextmenu, .vjs-control-bar, .vjs-menu, .vjs-modal-dialog, " +
+    "button, input, select, textarea, [role='menu'], [role='menuitem'], [role='menuitemradio'], [role='menuitemcheckbox'], [role='dialog'], [role='listbox'], [role='option']";
   // Container of the line translated with "Shift + hover".
   const LINE_BOX = ".rc-native-sub, .caption-window, .player-timedtext, .vjs-text-track-display, [class*='ubtitle'], [class*='aption']";
 
@@ -354,7 +357,13 @@
   function subtitleAt(e) {
     const t = e.target;
     if (!(t instanceof Element)) return null;
-    return t.closest(KNOWN_SUB) || (t.closest(GENERIC_SUB) && overVideo(e) ? t.closest(GENERIC_SUB) : null);
+    // Player controls and menus (e.g. YouTube settings popup) sit over the video but are never subtitles.
+    if (t.closest(PLAYER_UI)) return null;
+    const known = t.closest(KNOWN_SUB);
+    if (known) return known;
+    const generic = t.closest(GENERIC_SUB);
+    // A generic match that wraps the video itself is the player container, not a subtitle line.
+    return generic && !generic.querySelector("video") && overVideo(e) ? generic : null;
   }
 
   const WORD_CHAR = /[\p{L}\p{M}'’-]/u;
